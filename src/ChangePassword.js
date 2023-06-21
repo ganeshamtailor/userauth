@@ -21,7 +21,7 @@ const ChangePassword = () => {
 
     try {
       // Fetch the user data based on the username
-      const response = await fetch(`http://localhost:8000/user?username=${username}`);
+      const response = await fetch(`http://localhost:8000/user?id=${username}`);
       if (!response.ok) {
         throw new Error("Failed to fetch user data.");
       }
@@ -31,6 +31,7 @@ const ChangePassword = () => {
       if (data.length > 0) {
         const user = data[0];
 
+        console.log("currentPassword:", currentPassword);
         // Check if the current password matches
         if (user.password === currentPassword.trim()) {
           // Update the user's password
@@ -83,7 +84,8 @@ const ChangePassword = () => {
                 <input
                   type="password"
                   value={currentPassword}
-                  onChange={(e) => setCurrentPassword(e.target.value)}
+                  onChange={(e) => 
+                    setCurrentPassword(e.target.value)}
                   className="form-control"
                   required
                 />
@@ -103,7 +105,8 @@ const ChangePassword = () => {
                 <input
                   type="password"
                   value={confirmPassword}
-                  onChange={(e) => setConfirmPassword(e.target.value)}
+                  onChange={(e) => 
+                    setConfirmPassword(e.target.value)}
                   className="form-control"
                   required
                 />
