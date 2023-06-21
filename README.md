@@ -1,3 +1,6 @@
+ ### `json-server --watch db.json --port 8000`
+To run json-server
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
